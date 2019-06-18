@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>git commit -m
+<head>
 	<title>Pagina Teste</title>
 </head>
 <body>
-
-
+<form action="/blog/autenticar" method="POST">
+   {% csrf_token %}
+   {{ form.as_p }}
+   <input type="submit" value="Logar" />
+</form>
 </body>
 </html>
