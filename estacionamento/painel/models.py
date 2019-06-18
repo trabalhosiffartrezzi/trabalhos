@@ -2,11 +2,22 @@ from django.db import models
 from django.utils import timezone
 
 class Vaga(models.Model):
-	Rua = models.CharField(max_length=50)
-	Bairro = models.CharField(max_length=50)
-	Referencia = models.CharField(max_length=200)
-	Cidade = models.CharField(max_length=50)
-	Estado = models.CharField(max_length=2)
-	Valor = models.FloatField(default=0.00)
+	dono = models.ForeignKey('auth.User', on_delete=models.CASCADE, default="")
+	rua = models.CharField(max_length=50)
+	bairro = models.CharField(max_length=50)
+	referencia = models.CharField(max_length=200)
+	cidade = models.CharField(max_length=50)
+	estado = models.CharField(max_length=2)
+	valor = models.FloatField(default=0.00)
+	categoria = models.TextField(default="")
+
+	def __str__(self):
+		return str(self.dono) + " - " + self.rua + " - " + str(self.valor)  
+
+
+class Foto(models.Model):
+	vaga = models.ForeignKey(Vaga, on_delete=models.CASCADE) 
+	descricao = models.TextField()
+	imagens = models.ImageField(upload_to='images/', default="")
 	
 
