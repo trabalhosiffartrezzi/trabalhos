@@ -1,0 +1,26 @@
+ 
+{% load static %}
+{% block content %}
+
+<h1>Vagas Cadastradas</h1>
+
+{% if lista_vagas %}
+   <table class="table">
+    <thead>
+    <tr>
+           <th>Dono</th> 
+           <th>Rua</td>
+      </tr>
+    </thead>
+   {% for v in lista_vagas %}
+       <tr>
+           <td> {{ v.dono }}  </td> 
+           <td> {{ v.rua }}  </td>
+      </tr>
+   {% endfor %}
+   </table>
+{% else %}
+   <p>Nenhum artigo cadastrado.</p>
+{% endif %}
+
+{% endblock %}

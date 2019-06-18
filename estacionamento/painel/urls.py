@@ -4,6 +4,7 @@ from . import views
 #Associa a função views.index a url 'index'
 urlpatterns = [
     path('', views.index, name='index'),
+    path('vagas', views.vagas, name='vagas'),
 
 
     ]
