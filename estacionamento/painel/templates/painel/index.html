@@ -4,10 +4,17 @@
 	<title>Pagina Teste</title>
 </head>
 <body>
-<form action="/blog/autenticar" method="POST">
+<div align="center">
+<fieldset style="text-align: center; width: 40%;">
+	<legend>Faça Login no sistema</legend>
+<form action="/painel/autenticar" method="POST">
    {% csrf_token %}
-   {{ form.as_p }}
+   <BR><BR>
+   <input type="text" name="usuario" placeholder="Login"><br><br>
+   <input type="password" name="senha" placeholder="Senha"><br><br>
    <input type="submit" value="Logar" />
 </form>
+</fieldset>
+</div>
 </body>
 </html>
