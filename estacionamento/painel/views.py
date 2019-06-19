@@ -33,7 +33,7 @@ def autenticar(request):
          usuario = authenticate(request, username=username, password=senha)
          if usuario is not None:
             login(request, usuario) #Mantém o usuário logado
-            return HttpResponseRedirect('/painel/vagas')
+            return HttpResponseRedirect('/painel/meuperfil')
          else:
             contexto = {"form": form, "mensagem": "Usuário ou senha inválida" }
             return render(request, 'painel/index.html', contexto)
@@ -44,3 +44,10 @@ def autenticar(request):
       form = FormLogin()
       contexto = {"form": form}
       return render(request, 'painel/index.html', contexto)
+
+def meuperfil(request):
+	return render(request, 'painel/meuperfil.html')
+
+def sair(request):
+   logout(request)
+   return HttpResponseRedirect('/painel/')
