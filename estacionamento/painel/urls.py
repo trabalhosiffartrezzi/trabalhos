@@ -8,6 +8,7 @@ urlpatterns = [
     path('autenticar', views.autenticar, name='index'),
     path('meuperfil', views.meuperfil, name='meuperfil'),
     path('sair', views.sair, name='sair'),
+    path('cadastravaga', views.cadastravaga, name='cadastravaga'),
 
 
     ]

@@ -3,6 +3,7 @@ from django.db import models
 from django.http import HttpResponse
 from .models import Vaga
 from .forms import FormLogin
+from .forms import FormVaga
 from datetime import datetime 
 from django.http import HttpResponse   
 from django.http import HttpResponseRedirect
@@ -51,3 +52,25 @@ def meuperfil(request):
 def sair(request):
    logout(request)
    return HttpResponseRedirect('/painel/')
+
+def cadastravaga(request):
+   if request.method == 'POST':
+      form = FormVaga(request.POST)
+      if form.is_valid():
+         v = Vaga() 
+         v.dono = request.user
+         v.rua = form.cleaned_data['rua']
+         v.bairro = form.cleaned_data['bairro']
+         v.referencia = form.cleaned_data['referencia']
+         v.cidade = form.cleaned_data['cidade']
+         v.estado = form.cleaned_data['estado']
+         v.valor = form.cleaned_data['valor']
+         v.categoria = form.cleaned_data['categoria']
+         v.save()
+         return HttpResponseRedirect('/painel/meuperfil')
+      else:
+         return HttpResponse("Formulário inválido")
+   else:
+      form = FormVaga()
+      contexto = {"form": form}
+      return render(request, 'painel/cadastravaga.html', contexto)
