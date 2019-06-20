@@ -15,4 +15,5 @@ class FormVaga(forms.Form):
 	estado = forms.CharField(max_length=2)
 	valor = forms.IntegerField(initial=0.00)
 	categoria = forms.CharField(max_length=100)
+	rascunho = forms.BooleanField(required=True)
 	

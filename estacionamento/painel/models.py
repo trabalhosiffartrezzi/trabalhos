@@ -10,6 +10,7 @@ class Vaga(models.Model):
 	estado = models.CharField(max_length=2)
 	valor = models.FloatField(default=0.00)
 	categoria = models.TextField(default="")
+	rascunho = models.BooleanField(default=True)
 
 	def __str__(self):
 		return str(self.dono) + " - " + self.rua + " - " + str(self.valor)  

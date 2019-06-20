@@ -66,6 +66,7 @@ def cadastravaga(request):
          v.estado = form.cleaned_data['estado']
          v.valor = form.cleaned_data['valor']
          v.categoria = form.cleaned_data['categoria']
+         v.rascunho = form.cleaned_data['rascunho']
          v.save()
          return HttpResponseRedirect('/painel/meuperfil')
       else:
