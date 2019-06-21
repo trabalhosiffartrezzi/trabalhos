@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.db import models
 from django.http import HttpResponse
 from .models import Vaga
+from .models import Foto
 from .forms import FormLogin
 from .forms import FormVaga
 from datetime import datetime 
@@ -75,3 +76,12 @@ def cadastravaga(request):
       form = FormVaga()
       contexto = {"form": form}
       return render(request, 'painel/cadastravaga.html', contexto)
+
+def adicional(request):
+   listav = Vaga.objects.all()
+   contexto = {"listav": listav}
+   return render(request, 'painel/adicional.html', contexto)
+   
+   
+   
+   

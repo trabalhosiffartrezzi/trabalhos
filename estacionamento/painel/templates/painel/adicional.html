@@ -1,0 +1,30 @@
+{% extends "painel/meuperfil.html" %} 
+{% load static %}
+{% block content %}
+
+<h1>Minhas Vagas Cadastradas</h1>
+
+
+  {% if listav %}
+   <table class="table">
+    <thead>
+    <tr>
+           <th>Dono</th> 
+           <th>Rua</td>
+      </tr>
+    </thead>
+   {% for v in listav %}
+       <tr>
+           <td> {{ v.dono }}  </td> 
+           <td> {{ v.rua }}  </td>
+           <td><a href="#" class="btn btn-primary">Adicionar Imagens</a></td>
+           <td><a href="#" class="btn btn-primary">Adicionar Localização</a></td>
+      </tr>
+   {% endfor %}
+   </table>
+  
+{% else %}
+   <p>Sem vagas cadastradas.</p>
+  {% endif %}
+
+{% endblock %}

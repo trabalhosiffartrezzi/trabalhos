@@ -9,6 +9,7 @@ urlpatterns = [
     path('meuperfil', views.meuperfil, name='meuperfil'),
     path('sair', views.sair, name='sair'),
     path('cadastravaga', views.cadastravaga, name='cadastravaga'),
+    path('adicional', views.adicional, name='adicional'),
 
 
     ]
