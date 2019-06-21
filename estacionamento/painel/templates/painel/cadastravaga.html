@@ -6,18 +6,9 @@
 <h1>Cadastrar Vagas</h1>
 <form action="/painel/cadastravaga" method="POST">
    {% csrf_token %}
-   {{ form.as_v }}
+   {{ form.as_p }} 
    <br>
-   <input type="text" name="dono" placeholder="dono"><br><br>
-   <input type="text" name="rua" placeholder="rua"><br><br>
-   <input type="text" name="bairro" placeholder="bairro"><br><br>
-   <input type="text" name="referencia" placeholder="referencia"><br><br>
-   <input type="text" name="cidade" placeholder="cidade"><br><br>
-   <input type="text" name="estado" placeholder="estado"><br><br>
-   <input type="text" name="valor" placeholder="valor"><br><br>
-   <input type="text" name="categoria" placeholder="categoria"><br><br>
-   <input type="checkbox" name="rascunho" checked ><label for="True"> Retida para análise da moderação</label>
-
+   
    <br>
    <input type="submit" value="Cadastrar" />
 </form>

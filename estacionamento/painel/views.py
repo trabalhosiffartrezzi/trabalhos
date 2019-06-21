@@ -18,7 +18,7 @@ def index(request):
 
 def vagas(request):
 	
-	lista_vagas = Vaga.objects.all()
+	lista_vagas = Vaga.objects.filter(rascunho=False)
 	contexto = {'lista_vagas': lista_vagas}
 	return render(request, 'painel/vagas.html', contexto)
 

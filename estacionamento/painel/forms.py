@@ -7,7 +7,6 @@ class FormLogin(forms.Form):
 	senha = forms.CharField(widget=forms.PasswordInput, min_length=8, max_length=20)   
 
 class FormVaga(forms.Form):
-	dono = forms.CharField(label="dono")
 	rua = forms.CharField(max_length=200)
 	bairro = forms.CharField(max_length=100)
 	referencia = forms.CharField(widget=forms.Textarea, max_length=200)
