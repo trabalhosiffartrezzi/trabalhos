@@ -78,7 +78,7 @@ def cadastravaga(request):
       return render(request, 'painel/cadastravaga.html', contexto)
 
 def adicional(request):
-   listav = Vaga.objects.all()
+   listav = Vaga.objects.filter(dono = request.user)
    contexto = {"listav": listav}
    return render(request, 'painel/adicional.html', contexto)
    
