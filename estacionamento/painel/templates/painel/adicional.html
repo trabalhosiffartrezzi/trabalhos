@@ -6,25 +6,29 @@
 
 
   {% if listav %}
-   <table class="table">
-    <thead>
-    <tr>
-           <th>Dono</th> 
-           <th>Rua</td>
-      </tr>
-    </thead>
    {% for v in listav %}
-       <tr>
-           <td> {{ v.dono }}  </td> 
-           <td> {{ v.rua }}  </td>
-           <td><a href="#" class="btn btn-primary">Adicionar Imagens</a></td>
-           <td><a href="#" class="btn btn-primary">Adicionar Localização</a></td>
-      </tr>
-   {% endfor %}
-   </table>
-  
+      <table class="tg">
+  <tr>
+    <td> 
+      <div class="card text-center" style="width: 18rem;">
+      <div class="card-body" >
+      <h5 class="card-title">{{v.dono}} - {{v.rua}} - {{v.bairro}}</h5>
+      <p class="card-text"></p>
+      <a href="#"><i class="far fa-window-restore"></i>Adicionar Imagem</a>
+      <br>
+      <a href="#"><i class="fas fa-globe-africa"></i>Adicionar Localização</a>
+      </div>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+</table>
+  {%endfor%}
 {% else %}
    <p>Sem vagas cadastradas.</p>
   {% endif %}
-
+  <div>
+   <a class="Voltar" href="meuperfil"><i class="fas fa-undo fa-2x"></i>Voltar</a> 
+  </div>
+  
 {% endblock %}

@@ -1,0 +1,22 @@
+
+.tg {
+	float: left
+}
+
+.Voltar{
+	position: absolute;
+	bottom: 0;
+	float: center;
+}
+
+.Ajuste{
+	width: 30%;
+	float: left;
+	margin: 15px;
+}
+
+.centro{
+	float: center;
+	margin-left:5%;
+}
+

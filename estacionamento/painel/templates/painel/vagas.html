@@ -2,25 +2,41 @@
 {% load static %}
 {% block content %}
 
-<h1>Vagas Cadastradas</h1>
+
+<h1 align="center">Vagas Cadastradas</h1>
 
 {% if lista_vagas %}
-   <table class="table">
-    <thead>
-    <tr>
-           <th>Dono</th> 
-           <th>Rua</td>
-      </tr>
-    </thead>
+
    {% for v in lista_vagas %}
-       <tr>
-           <td> {{ v.dono }}  </td> 
-           <td> {{ v.rua }}  </td>
-      </tr>
+
+<table class="tg">
+  <tr>
+    <td> 
+      <div class="card text-center" style="width: 18rem;">
+      <div class="card-body" >
+      <h5 class="card-title">{{v.dono}}</h5>
+      <p class="card-text">{{v.rua}} - {{v.bairro}}</p>
+      <p class="card-text">{{v.referencia}}</p>
+      <p class="card-text">{{v.cidade}} - {{v.estado}}</p>
+      <p class="card-text">{{v.valor}} Reais</p>
+       <p class="card-text">{{v.categoria}}</p>
+      <a href="#"><i class="far fa-window-restore"></i>Ver imagens</a>
+      <br>
+      <a href="#"><i class="fas fa-globe-africa"></i>Ver localização</a>
+      </div>
+      </div>
+    </td>
+    <td></td>
+  </tr>
+</table>
    {% endfor %}
-   </table>
 {% else %}
-   <p>Nenhum artigo cadastrado.</p>
+   <p>Nenhuma Vaga cadastrada ou aprovada.</p>
 {% endif %}
+
+<div>
+  <a class="Voltar" href="meuperfil"><i class="fas fa-undo fa-2x"></i>Voltar</a>
+</div>
+  
 
 {% endblock %}
