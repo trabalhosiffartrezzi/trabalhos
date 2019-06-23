@@ -1,20 +1,56 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login do Sistema</title>
+	<title>Pagina Inicial do Sharing Park</title>
+
+	<!--BOOTSTRAP -->
+<link rel="stylesheet" href="{% static '/painel/css/bootstrap.min.css' %}">
+<script src="{% static '/painel/js/bootstrap.min.js' %}"></script> 
+<script src="{% static '/painel/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static '/painel/js/jquery-3.3.1.slim.min.' %}"></script>
+
+<!--FONTAWESOME -->
+<script src="{% static '/painel/js/all.js' %}"></script> 
+<link rel="stylesheet" href="{% static '/painel/css/all.css' %}">
+
+<!--Arquivo Css -->
+<link rel="stylesheet" href="{% static '/painel/estilos.css' %}" >
+
 </head>
+
 <body>
-<div align="center">
-<fieldset style="text-align: center; width: 40%;">
-	<legend>Faça Login no sistema</legend>
-<form action="/painel/autenticar" method="POST">
-   {% csrf_token %}
-   <BR><BR>
-   <input type="text" name="usuario" placeholder="Login"><br><br>
-   <input type="password" name="senha" placeholder="Senha"><br><br>
-   <input type="submit" value="Logar" />
-</form>
-</fieldset>
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{user}}<i class="fas fa-user"></i></a>
+  </li>
+  {% if user.is_authenticated %}
+  <li class="nav-item">
+    <a class="nav-link" href="/painel/sair"><i class="fas fa-sign-out-alt"></i>Sair</a>
+    {% else %}
+    <a class="nav-link" href="/painel/autenticar"><i class="fas fa-sign-in-alt"></i>Login </a>
+  </li>
+  {% endif %}
+</ul>
+
+<div>
+  <div class="card mb-3">
+  <img src="{% static '/painel/Index.jpeg' %}" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">Vantagens de Usar o sharing Park:</h5>
+    <p class="card-text"></p>
+    <p class="card-text"><small class="text-muted">Desenvolvido por Cassiano Trezzi, Daniel Curti, Cleito e Anderson Strack</small></p>
+  </div>
 </div>
+
+</div>
+
+<div>
+{% block content %}
+{% endblock %}
+</div>
+
 </body>
+
+
 </html>

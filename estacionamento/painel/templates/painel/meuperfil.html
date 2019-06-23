@@ -1,45 +1,23 @@
+{% extends "painel/index.html" %}
 {% load static %}
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Meu Perfil</title>
-
-
-<!--BOOTSTRAP -->
-<script src="{% static '/painel/js/bootstrap.min.js' %}"></script> 
-<link rel="stylesheet" href="{% static '/painel/css/bootstrap.min.css' %}">
-
-<!--FONTAWESOME -->
-<script src="{% static '/painel/js/all.js' %}"></script> 
-<link rel="stylesheet" href="{% static '/painel/css/all.css' %}">
-
-<!--Arquivo Css -->
-<link rel="stylesheet" href="{% static '/painel/css/estilo.css' %}" >
-
-
 </head>
 <body>
+
+
 {% block content %}
 
-<ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{user}}</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Meus dados</a>
-  </li>
   {% if user.is_authenticated %}
-  <li class="nav-item">
-    <a class="nav-link" href="/painel/sair"><i class="fas fa-sign-out-alt"></i>Sair</a>
-    {% else %}
-  </li>
-  {% endif %}
-  </ul>
-<div class="centro">
 
+<div class="centro">
 <div class="Ajuste">
   <div class="card" style="width: 18rem;">
-  <img src="{% static '/painel/card3.jpg' %}" class="card-img-top" alt="...">
+  <img src="{% static '/painel/card3.jpg' %}" class="card-img-top">
   <div class="card-body">
     <h5 class="card-title">Cadastrar Vagas</h5>
     <p class="card-text"> Cadastre sua vaga e começe a ganhar dineiro.</p>
@@ -50,7 +28,7 @@
 
 <div class="Ajuste">
 <div class="card" style="width: 18rem;">
-  <img src="{% static '/painel/card1.jpg' %}" class="card-img-top" alt="...">
+  <img src="{% static '/painel/card1.jpg' %}" class="card-img-top">
   <div class="card-body">
     <h5 class="card-title">Alugar uma vaga</h5>
     <p class="card-text"> Alugue sua vaga e estacione aonde quiser.</p>
@@ -61,7 +39,7 @@
 
 <div class="Ajuste">
 <div class="card" style="width: 18rem;">
-  <img src="{% static '/painel/card2.jpg' %}" class="card-img-top" alt="...">
+  <img src="{% static '/painel/card2.jpg' %}" class="card-img-top">
   <div class="card-body">
     <h5 class="card-title">Adicionar informações adicionais </h5>
     <p class="card-text">Adicione fotos e localização para que a sua vaga fique bem localizada e visivel a todos.</p>
@@ -71,8 +49,12 @@
 </div>
 
 </div>
-
-  {% endblock %}
+{% else %}
+  <div class="alert alert-danger" role="alert" ><a href="/painel/autenticar"><i class="fas fa-exclamation-triangle"></i>Faça login no sistema para ter acesso as funções</a>  
+</div>
+{% endif %}
+{% endblock %}
+  
   
 
 
@@ -80,4 +62,5 @@
 
 </body>
 </html>
+
 

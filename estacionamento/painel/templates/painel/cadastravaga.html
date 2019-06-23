@@ -1,7 +1,9 @@
-{% extends "painel/meuperfil.html" %} 
+{% extends "painel/index.html" %} 
 {% load static %}
 
 {% block content %}
+
+{% if user.is_authenticated %}
 
 <h1>Cadastrar Vagas</h1>
 <form action="/painel/cadastravaga" method="POST">
@@ -13,5 +15,10 @@
 	<a class="Voltar" href="meuperfil"><i class="fas fa-undo fa-2x"></i>Voltar</a>
 </div>
 
+{% else %}
+  <div class="alert alert-danger" role="alert" ><a href="/painel/autenticar"><i class="fas fa-exclamation-triangle"></i>Faça login no sistema para ter acesso as funções</a>  
+</div>
+{% endif %}
+{% endblock %}
 
-{% endblock content %}
+}

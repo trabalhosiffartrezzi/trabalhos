@@ -17,10 +17,17 @@ def index(request):
     return render(request, 'painel/index.html')
 
 def vagas(request):
-	
-	lista_vagas = Vaga.objects.filter(rascunho=False)
-	contexto = {'lista_vagas': lista_vagas}
-	return render(request, 'painel/vagas.html', contexto)
+   
+   if request.user.is_authenticated == True:
+      lista_vagas = Vaga.objects.filter(rascunho=False)
+      contexto = {'lista_vagas': lista_vagas}
+      return render(request, 'painel/vagas.html', contexto)
+   else:
+      form = FormLogin()
+      contexto = {"form": form,}
+      return render(request, 'painel/autenticar.html', contexto)
+
+      
 
 
 def autenticar(request):
@@ -38,14 +45,14 @@ def autenticar(request):
             return HttpResponseRedirect('/painel/meuperfil')
          else:
             contexto = {"form": form, "mensagem": "Usuário ou senha inválida" }
-            return render(request, 'painel/index.html', contexto)
+            return render(request, 'painel/autenticar.html', contexto)
       else:
          return HttpResponse("Formulário inválido")
    else:
       #Exibir o formulário (Vindo do GET)
       form = FormLogin()
       contexto = {"form": form}
-      return render(request, 'painel/index.html', contexto)
+      return render(request, 'painel/autenticar.html', contexto)
 
 def meuperfil(request):
 	return render(request, 'painel/meuperfil.html')
@@ -78,9 +85,21 @@ def cadastravaga(request):
       return render(request, 'painel/cadastravaga.html', contexto)
 
 def adicional(request):
-   listav = Vaga.objects.filter(dono = request.user)
-   contexto = {"listav": listav}
-   return render(request, 'painel/adicional.html', contexto)
+
+   if request.user.is_authenticated == True:
+      listav = Vaga.objects.filter(dono=request.user)
+      contexto = {"listav": listav}
+      return render(request, 'painel/adicional.html', contexto)
+   else:
+      form = FormLogin()
+      contexto = {"form": form,}
+      return render(request, 'painel/autenticar.html', contexto)
+
+def fotos(request):
+
+   return render (request,'painel/fotos.html')
+
+
    
    
    

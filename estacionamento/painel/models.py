@@ -20,5 +20,8 @@ class Foto(models.Model):
 	vaga = models.ForeignKey(Vaga, on_delete=models.CASCADE) 
 	descricao = models.TextField()
 	imagens = models.ImageField(upload_to='images/', default="")
+
+	def __str__(self):
+		return str(self.vaga) + " - " + self.descricao
 	
 

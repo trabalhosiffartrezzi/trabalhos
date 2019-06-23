@@ -1,0 +1,18 @@
+{% extends "painel/index.html" %} 
+{% load static %}
+{% block content %}
+
+
+<h1 align="center">Fotos cadastradas</h1>
+
+
+   <img src="/estacionamento{{Fotos.images.url}}" width="300px" heigth="300px"/>
+  
+
+
+<div>
+  <a class="Voltar" href="meuperfil"><i class="fas fa-undo fa-2x"></i>Voltar</a>
+</div>
+  
+
+{% endblock %}

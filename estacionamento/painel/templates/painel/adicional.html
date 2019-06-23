@@ -1,8 +1,9 @@
-{% extends "painel/meuperfil.html" %} 
+{% extends "painel/index.html" %} 
 {% load static %}
-{% block content %}
+
 
 <h1>Minhas Vagas Cadastradas</h1>
+{% block content %}
 
 
   {% if listav %}
@@ -12,8 +13,12 @@
     <td> 
       <div class="card text-center" style="width: 18rem;">
       <div class="card-body" >
-      <h5 class="card-title">{{v.dono}} - {{v.rua}} - {{v.bairro}}</h5>
-      <p class="card-text"></p>
+      <h5 class="card-title">{{v.dono}}</h5>
+      <p class="card-text">{{v.rua}} - {{v.bairro}}</p>
+      <p class="card-text">{{v.referencia}}</p>
+      <p class="card-text">{{v.cidade}} - {{v.estado}}</p>
+      <p class="card-text">{{v.valor}} Reais</p>
+       <p class="card-text">{{v.categoria}}</p>
       <a href="#"><i class="far fa-window-restore"></i>Adicionar Imagem</a>
       <br>
       <a href="#"><i class="fas fa-globe-africa"></i>Adicionar Localização</a>
@@ -23,12 +28,14 @@
     <td></td>
   </tr>
 </table>
-  {%endfor%}
-{% else %}
+   {%endfor%}
+  {% else %}
    <p>Sem vagas cadastradas.</p>
+
   {% endif %}
   <div>
    <a class="Voltar" href="meuperfil"><i class="fas fa-undo fa-2x"></i>Voltar</a> 
   </div>
   
+
 {% endblock %}
