@@ -27,9 +27,6 @@ def vagas(request):
       contexto = {"form": form,}
       return render(request, 'painel/autenticar.html', contexto)
 
-      
-
-
 def autenticar(request):
    if request.method == 'POST':
       #Tratar os dados vindos do formulário
@@ -96,9 +93,14 @@ def adicional(request):
       return render(request, 'painel/autenticar.html', contexto)
 
 def fotos(request):
-
-   return render (request,'painel/fotos.html')
-
+   if request.user.is_authenticated == True:
+      lista_fotos = Foto.objects.all()
+      contexto = {'lista_fotos': lista_fotos}
+      return render (request,'painel/fotos.html', contexto)
+   else:
+      form = FormLogin()
+      contexto = {"form": form,}
+      return render(request, 'painel/autenticar.html', contexto)
 
    
    

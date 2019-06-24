@@ -33,22 +33,27 @@
   {% endif %}
 </ul>
 
+
+{% block content %}
+<div class="container-fluid">   
 <div>
-  <div class="card mb-3">
-  <img src="{% static '/painel/Index.jpeg' %}" class="card-img-top">
-  <div class="card-body">
-    <h5 class="card-title">Vantagens de Usar o sharing Park:</h5>
-    <p class="card-text"></p>
-    <p class="card-text"><small class="text-muted">Desenvolvido por Cassiano Trezzi, Daniel Curti, Cleito e Anderson Strack</small></p>
+    <div class="card mb-3">
+    <img src="{% static '/painel/Index.jpeg' %}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">Vantagens de Usar o sharing Park:</h5>
+      <p class="card-text"> Mobilidade, Custos mais baixos, compartilhamento. Essas são algumas vantagens do nosso sistema. Peça acesso e começe a usar.</p>
+      <p class="card-text"><small class="text-muted">Desenvolvido por Cassiano Trezzi, Daniel Curti, Cleiton Souza e Anderson Strack</small>
+      </p>
+    </div>
   </div>
 </div>
-
 </div>
 
-<div>
-{% block content %}
+
+
+
 {% endblock %}
-</div>
+
 
 </body>
 

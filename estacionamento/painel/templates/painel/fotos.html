@@ -5,10 +5,16 @@
 
 <h1 align="center">Fotos cadastradas</h1>
 
+{% if lista_vagas %}
 
-   <img src="/estacionamento{{Fotos.images.url}}" width="300px" heigth="300px"/>
+   {% for v in lista_vagas %}
+
+   <img src="'/media/images{{v.images.url}}'" width="300px" heigth="300px"/>
   
-
+	{% endfor %}
+{% else %}
+   <p>Nenhuma Vaga cadastrada ou aprovada.</p>
+{% endif %}
 
 <div>
   <a class="Voltar" href="meuperfil"><i class="fas fa-undo fa-2x"></i>Voltar</a>
